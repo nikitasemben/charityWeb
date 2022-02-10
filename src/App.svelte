@@ -4,6 +4,7 @@
 	import About from './pages/About.svelte';
 	import Contact from './pages/contact.svelte';
 	import Donation from './pages/Donation.svelte';
+	import NotFound from './pages/NotFound.svelte';
 
 	let page, params;
 	router('/', ()=> (page = Home));
@@ -13,6 +14,7 @@
 		params = ctx.params;
 		next();
 	},()=>(page=Donation));
+	router('/*', ()=>{page = NotFound});
 
 	router.start();
 
