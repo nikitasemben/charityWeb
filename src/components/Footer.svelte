@@ -19,7 +19,7 @@
 						<h3 class="widget-title">About Us</h3>
 						<ul class="xs-footer-list">
 							<li><a href="/">About employee</a></li>
-							<li><a href="#\">How it works</a></li>
+							<li><a href="#">How it works</a></li>
 							<li><a href="#">Careers</a></li>
 							<li><a href="#">Press</a></li>
 							<li><a href="#">Blog</a></li>
