@@ -1,5 +1,5 @@
 exports.handler = function(event, context, callback){
-    const Midtrans = require('midrans-client');
+    const Midtrans = require('midtrans-client');
 
 
     const header = {
