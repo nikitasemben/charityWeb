@@ -7,7 +7,7 @@ exports.handler = function(event, context, callback){
         'Access-Control-Allow-Headers' : 'Content-Type',
         'Access-Control-Allow-Method': 'GET,POST,PUT,DELETE'
     };
-    const snap = Midtrans.Snap({
+    const snap = new Midtrans.Snap({
         isProduction: false,
         serverKey: process.env.MIDTRANS_SERVER_KEY,
         clientKey: process.env.MIDTRANS_CLIENT_KEY
