@@ -17,8 +17,9 @@
         console.log("Button click")
     }
     async function handleForm(event){
-       data.pledged = data.pledged + parseInt(amount);
-       try{
+        const data = await getCharity(params.id);
+        data.pledged = data.pledged + parseInt(amount);
+        try{
         const res = await fetch(`https://charity-api-bwa.herokuapp.com/charities/${params.id}` , {
            method:'PUT',
            headers:{
@@ -40,7 +41,7 @@
         });
         const midtransData = await resMid.json();
         console.log(midtransData);
-        window.location.href = midtransData.url;
+        //window.location.href = midtransData.url;
        }catch(err){
            console.log(err);
        }
