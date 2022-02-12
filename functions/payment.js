@@ -1,7 +1,7 @@
 exports.handler = function(event, context, callback){
     const Midtrans = require('midtrans-client');
 
-    const header = {
+    const headers = {
         'Access-Control-Allow-Origin' : '*',
         'Access-Control-Allow-Headers' : 'Content-Type',
         'Access-Control-Allow-Method': 'GET,POST,PUT,DELETE'
@@ -48,7 +48,7 @@ exports.handler = function(event, context, callback){
 
         callback(null,{
             statusCode: 200,
-            header,
+            headers,
             body: JSON.stringify({
                 url: redirect_url,
                 params: parameters
@@ -58,9 +58,10 @@ exports.handler = function(event, context, callback){
         console.error(`Error: ${err.message}`);
         callback(null,{
             statusCode: 400,
-            header,
+            headers,
             body: JSON.stringify({error: err.message})
         })
     })
 
+    
 }
