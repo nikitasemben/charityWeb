@@ -36,7 +36,7 @@
         background-color: rgba(0, 0, 0, 5);
     }
     .pledged{
-        margin-right: 1.2em;
+        margin-right: 1.0em;
     }
 </style>
 <!-- popularCauses section -->
