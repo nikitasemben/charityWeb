@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "midtrans-client": "^1.3.0",
-    "netlify-cli": "^8.14.1",
+    "netlify-cli": "^8.19.3",
     "page": "^1.11.6",
     "sirv-cli": "^2.0.0",
     "source-map-url": "^0.4.1"
