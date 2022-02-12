@@ -17,7 +17,7 @@
         console.log("Button click")
     }
     async function handleForm(event){
-        charity.pledged = charity.pledged + parseInt(amount);
+       charity.pledged = charity.pledged + parseInt(amount);
        try{
         const res = await fetch(`https://charity-api-bwa.herokuapp.com/charities/${params.id}` , {
            method:'PUT',
