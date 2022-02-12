@@ -17,14 +17,14 @@
         console.log("Button click")
     }
     async function handleForm(event){
-       newData.pledged = newData.pledged + parseInt(amount);
+       data.pledged = data.pledged + parseInt(amount);
        try{
         const res = await fetch(`https://charity-api-bwa.herokuapp.com/charities/${params.id}` , {
            method:'PUT',
            headers:{
                'content-type' : 'application/json'
            },
-           body: JSON.stringify(newData)
+           body: JSON.stringify(data)
        });
        const resMid = await fetch(`/.netlify/functions/payment`,{
            method:'POST',
