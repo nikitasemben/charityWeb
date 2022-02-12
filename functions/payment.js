@@ -1,7 +1,6 @@
 exports.handler = function(event, context, callback){
     const Midtrans = require('midtrans-client');
 
-
     const header = {
         'Access-Control-Allow-Origin' : '*',
         'Access-Control-Allow-Headers' : 'Content-Type',
@@ -21,7 +20,7 @@ exports.handler = function(event, context, callback){
     if(names && names.lenght > 1){
         first_name = names[0];
         last_name = names[1];
-    } else if(name.lenght === 1){
+    } else if(names.lenght === 1){
         first_name = names[0];
         last_name = '';
     }

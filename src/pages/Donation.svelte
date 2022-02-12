@@ -26,9 +26,18 @@
            },
            body: JSON.stringify(charity)
        });
-       console.log(res);
-       // redirection
-       router.redirect('/success');
+       const resMid = await fetch(`/.netlify/functions/payment`,{
+           method: 'POST',
+           headers: {'content-type':'application/json' 
+        },
+       body: JSON.stringify({
+           id: params.id,
+           amount: parseInt(amount),
+           name,
+           email,
+       }),
+     });
+     const midtransData = await resMid.json();
        }catch(err){
            console.log(err);
        }
