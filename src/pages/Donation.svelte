@@ -26,7 +26,7 @@
            },
            body: JSON.stringify(newData)
        });
-       const resMid = await fetch(`netlify/functions/payment`,{
+       const resMid = await fetch(`/.netlify/functions/payment`,{
            method:'POST',
            headers:{
                'content-type': 'application/json'
