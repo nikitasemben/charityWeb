@@ -2,10 +2,11 @@ exports.handler = function(event, context, callback){
     const Midtrans = require('midtrans-client');
 
     const headers = {
-        'Access-Control-Allow-Origin' : '*',
-        'Access-Control-Allow-Headers' : 'Content-Type',
-        'Access-Control-Allow-Method': 'GET,POST,PUT,DELETE'
+        'Access-Control-Allow-Origin': '*',
+        'Acess-Control-Allow-Headers': 'Content-Type',
+        'Acess-Contol-Allow-Methods': 'GET, POST, PUT, DELETE'
     };
+
     const snap = new Midtrans.Snap({
         isProduction: false,
         serverKey: process.env.MIDTRANS_SERVER_KEY,
@@ -17,21 +18,21 @@ exports.handler = function(event, context, callback){
     const names = name.split('');
     let first_name, last_name;
 
-    if(names && names.lenght > 1){
+    if(names && names.length > 1) {
         first_name = names[0];
         last_name = names[1];
-    } else if(names.lenght === 1){
+    } else if(names.length === 1) {
         first_name = names[0];
         last_name = '';
     }
 
     const parameters = {
-        transaction_details:{
-            order_id:`BLILI-${id}-${+new Date()}`,
+        transaction_details: {
+            order_id: `CHARM-${id}-${+new Date()}`,
             gross_amount: parseInt(amount)
         },
-        custromer_details:{
-            first_name, 
+        customer_details: {
+            first_name,
             last_name,
             email
         },
@@ -40,13 +41,13 @@ exports.handler = function(event, context, callback){
         }
     }
 
-    snap.createTransaction(parameters).then(function(transaction){
+    snap.createTransaction(parameters)
+    .then(function(transaction) {
         const { token, redirect_url } = transaction;
         console.log(`Token: ${token}`);
         console.log(`Redirect URL: ${redirect_url}`);
 
-
-        callback(null,{
+        callback(null, {
             statusCode: 200,
             headers,
             body: JSON.stringify({
@@ -54,14 +55,13 @@ exports.handler = function(event, context, callback){
                 params: parameters
             })
         })
-    }).catch(function(err){
+
+    }).catch(function (err) {
         console.error(`Error: ${err.message}`);
-        callback(null,{
+        callback(null, {
             statusCode: 400,
             headers,
-            body: JSON.stringify({error: err.message})
+            body: JSON.stringify({ error: err.message})
         })
     })
-
-    
 }
