@@ -6,13 +6,18 @@
     import Footer from '../components/Footer.svelte';
     import Loader from '../components/Loader.svelte';
     
-    let amount, name, email, agree = false; 
+    let amount = 0, name, email, agree = false, contribute = 0; 
+
+    $: if($charity){
+        contribute = Math.floor((parseInt(amount)/$charity.target)* 100);
+    }
     
     getCharity($params.id);
     function handleButtonClick(){
         console.log("Button click")
     }
     async function handleForm(event){
+        agree = false;
         const newdata = await getCharity($params.id);
         newdata.pledged = newdata.pledged + parseInt(amount);
         try{
@@ -92,7 +97,9 @@
                         <div class="xs-donation-form-wraper">
                             <div class="xs-heading xs-mb-30">
                                 <h2 class="xs-title">{$charity.title}</h2>
-                                <p class="small">To learn more about make donate charity with us visit our "<span class="color-green">Contact us</span>" site. By calling <span class="color-green">+44(0) 800 883 8450</span>.</p><span class="xs-separetor v2"></span>
+                                <p class="small">To learn more about make donate charity with us visit our "<span class="color-green">Contact us</span>" site. By calling <span class="color-green">+44(0) 800 883 8450</span>.</p>
+                                <h5>Your donation will be contributing <strong>{contribute}%</strong></h5>
+                                <span class="xs-separetor v2"></span>  
                             </div><!-- .xs-heading end -->
                             <form on:submit|preventDefault={handleForm} action="#" method="post" id="xs-donation-form" class="xs-donation-form" name="xs-donation-form">
                                 

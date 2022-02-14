@@ -2,12 +2,8 @@
 <header class="xs-header header-transparent">
     <div class="container">
         <nav class="xs-menus">
-            <div class="nav-header">
-                <div class="nav-toggle"></div>
-                <a href="/" class="nav-logo">
-                    <img src="/assets/images/logo.png" alt="">
-                </a>
-            </div><!-- .nav-header END -->
+            
+            <!-- .nav-header END -->
             <div class="nav-menus-wrapper row">
                 <div class="xs-logo-wraper col-lg-2 xs-padding-0">
                     <a class="nav-brand" href="/">

@@ -1,5 +1,4 @@
 <script>
-
 	import router from 'page';
 	import { page, params} from './stores/page.js';
 	import Home from './pages/Home.svelte';
@@ -10,6 +9,7 @@
 	import Success from './pages/Success.svelte';
 	import Failure from './pages/failure.svelte';
 
+	export let ready;
 	
 	router('/', ()=> ($page = Home));
 	router('/about', ()=> ($page = About));
@@ -26,4 +26,4 @@
 
 </script>
 
-<svelte:component this={$page} />
+<svelte:component this={$page} {ready} />

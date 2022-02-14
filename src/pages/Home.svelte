@@ -1,4 +1,5 @@
 <script>
+    import { onDestroy } from 'svelte';
     import { charities } from '../stores/data.js';
     import CharityList from '../components/charityList.svelte';
     import Header from '../components/Header.svelte';
@@ -11,6 +12,10 @@
 
     charities.subscribe(function(value){
         data = value;
+    });
+
+    onDestroy(function(){
+        window.scrollTo(0,0);
     });
 
  
